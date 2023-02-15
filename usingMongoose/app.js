@@ -31,5 +31,27 @@ const Person = mongoose.model("Person", personSchema);
 
 const person = new Person({
   name: "John",
-  rating: 31,
+  age: 31,
 });
+
+// person.save();
+
+const kiwi = new Fruit({
+  name: "Kiwi",
+  score: 10,
+  review: "The best fruit!",
+})
+
+const orange = new Fruit({
+  name: "Orange",
+  score: 4,
+  review: "Too sour for me",
+})
+
+const banana = new Fruit({
+  name: "Banana",
+  score: 3,
+  review: "Weird texture",
+})
+
+Fruit.insertMany(); 
