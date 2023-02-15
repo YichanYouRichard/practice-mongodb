@@ -1,21 +1,21 @@
 const mongoose = require("mongoose");
 
-const url = "mongodb://localhost:27017/fruitsDB";
+const url = "mongodb://localhost:27017/peopleDB";
 
-mongoose.connect(url);
+mongoose.set("strictQuery", false);
 
-const fruitSchema = new mongoose.Schema({
+mongoose.connect(url, { useNewUrlParser: true });
+
+const personSchema = new mongoose.Schema({
   name: String,
-  rating: Number,
-  review: String,
+  age: Number,
 });
 
-const Fruit = mongoose.model("Fruit", fruitSchema);
+const Person = mongoose.model("person", personSchema);
 
-const fruit = new Fruit({
-  name: "Apple",
-  rating: 7,
-  review: "Pretty solid as a fruit.",
+const person = new Person({
+  name: "John",
+  rating: 31,
 });
 
-fruit.save();
+person.save();
